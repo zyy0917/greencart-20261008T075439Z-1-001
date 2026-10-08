@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GreenCart – Privacy Notice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/privacy.css">
+</head>
+<body>
+<script src="js/sprite.js"></script>
+
+<div class="priv">
+  <header class="priv-top">
+    <div class="row">
+      <a href="index.html" data-home-link><span class="logo-chip"><svg width="20" height="20"><use href="#gc-mark"/></svg></span><span class="brand-text">GreenCart</span></a>
+    </div>
+  </header>
+
+  <main class="priv-body">
+    <h1>PRIVACY NOTICE</h1>
+    <hr class="rule">
+    <p class="lead">Your privacy matters to us.</p>
+    <p class="sublead">This notice explains how GreenCart collects, uses, and protects your personal information as you shop with us, and your choices about it.</p>
+
+    <div class="block-card">
+      <h2><span class="ico"><svg width="13" height="13"><use href="#i-shield"/></svg></span>Information we collect</h2>
+      <ul>
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Contact number</li>
+        <li>Delivery address</li>
+        <li>Order information</li>
+      </ul>
+    </div>
+
+    <div class="block-card">
+      <h2><span class="ico"><svg width="13" height="13"><use href="#i-list"/></svg></span>How we use your data</h2>
+      <div class="use-item"><b>Order fulfillment</b><span>Processing payments and delivering your groceries to your door.</span></div>
+      <div class="use-item"><b>Personalization</b><span>Tailoring offers, suggestions, and recommendations to what you buy.</span></div>
+      <div class="use-item"><b>Analytics</b><span>Measuring how the site performs so we can improve it for everyone.</span></div>
+    </div>
+
+    <p class="manage-label">Manage your consent</p>
+    <div class="consent-item">
+      <div class="grow"><b>Essential Cookies</b><span>Needed for sign-in, cart, and checkout.</span></div>
+      <span class="badge">Always on</span>
+      <button class="switch" role="switch" aria-checked="true" aria-label="Essential cookies" disabled></button>
+    </div>
+    <div class="consent-item">
+      <div class="grow"><b>Analytics &amp; Performance</b><span>Helps us understand how the site is used.</span></div>
+      <button class="switch" role="switch" aria-checked="false" aria-label="Analytics and performance cookies" id="p-analytics"></button>
+    </div>
+    <div class="consent-item">
+      <div class="grow"><b>Marketing &amp; Advertising</b><span>Lets us show offers that fit your interests.</span></div>
+      <button class="switch" role="switch" aria-checked="false" aria-label="Marketing and advertising cookies" id="p-marketing"></button>
+    </div>
+
+    <div class="priv-actions">
+      <button class="btn primary" id="p-accept">Accept All</button>
+      <button class="btn" id="p-reject">Reject All</button>
+      <button class="btn" id="p-save">Save Preferences</button>
+    </div>
+    <div class="status" id="p-status" role="status" aria-live="polite"></div>
+
+    <div class="priv-foot"><a href="privacy.html">Terms of Service</a><a href="privacy.html">Contact Support</a></div>
+    <!-- data-back-link: js/back-link.js points this at the page you came from (home/profile when signed in) -->
+    <div class="priv-foot" style="margin-top:.8rem"><a href="index.html" data-back-link>&larr; Back to GreenCart</a></div>
+  </main>
+</div>
+
+<script src="js/consent.js"></script>
+<script src="js/privacy.js"></script>
+<script src="js/account.js"></script>
+<script src="js/back-link.js"></script>
+</body>
+</html>

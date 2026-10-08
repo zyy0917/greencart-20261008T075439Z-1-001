@@ -1,0 +1,40 @@
+/* Privacy Notice page */
+.priv { background: var(--priv-bg); min-height: 100vh; }
+.priv-top { background: var(--sage); color: #f1f1e8; }
+.priv-top .row { display: flex; align-items: center; gap: .7rem; padding: .6rem 1.25rem; }
+.priv-top a { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.priv-top .logo-chip { width: 30px; height: 30px; border-radius: 50%; background: #f3f1e6; display: grid; place-items: center; }
+.priv-top .brand-text { font-size: 1.25rem; }
+
+.priv-body { max-width: 720px; margin: 0 auto; padding: 1.75rem 1.25rem 2.5rem; }
+.priv h1 { font-family: var(--serif); font-weight: 400; text-align: center; font-size: clamp(1.9rem, 5vw, 2.6rem); margin: 0; color: var(--green-900); letter-spacing: .03em; }
+.priv hr.rule { border: 0; height: 1px; width: 80px; background: var(--muted); margin: .7rem auto; }
+.priv .lead { text-align: center; font-weight: 600; margin: 0 0 .3rem; }
+.priv .sublead { text-align: center; color: var(--muted); font-size: .85rem; line-height: 1.55; margin: 0 auto 1.5rem; max-width: 52ch; }
+.priv h2 { font-family: var(--sans); font-size: .9rem; margin: 0 0 .7rem; color: var(--green-900); display: flex; align-items: center; gap: .5rem; }
+.priv h2 .ico { width: 22px; height: 22px; border-radius: 6px; background: var(--green-700); display: grid; place-items: center; color: #fff; flex: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .priv h1, :root:not([data-theme="light"]) .priv h2 { color: #d8e3cc; } }
+
+.block-card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.1rem; margin-bottom: 1rem; }
+.block-card ul { margin: 0; padding-left: 1.2rem; font-size: .85rem; line-height: 1.8; color: var(--muted); }
+.use-item { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: .65rem .8rem; margin-bottom: .5rem; }
+.use-item:last-child { margin-bottom: 0; }
+.use-item b { display: block; font-size: .82rem; margin-bottom: .15rem; }
+.use-item span { font-size: .78rem; color: var(--muted); line-height: 1.5; }
+
+.manage-label { font-size: .72rem; font-weight: 700; letter-spacing: .02em; margin: 1.5rem 0 .5rem; }
+.consent-item { display: flex; align-items: center; gap: .8rem; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: .7rem .9rem; margin-bottom: .5rem; }
+.consent-item .grow { flex: 1; }
+.consent-item b { display: block; font-size: .82rem; }
+.consent-item span { font-size: .72rem; color: var(--muted); }
+.consent-item .badge { font-size: .65rem; color: var(--green-700); font-weight: 600; margin-right: .3rem; }
+
+.priv-actions { display: grid; gap: .55rem; margin-top: 1.2rem; }
+.priv-actions .btn { padding: .75rem 1rem; }
+.priv-foot { text-align: center; font-size: .72rem; color: var(--muted); margin-top: 1.4rem; display: flex; justify-content: center; gap: 1.5rem; }
+.priv-foot a { color: var(--green-700); font-weight: 600; }
+.status { text-align: center; font-size: .78rem; min-height: 1.1rem; color: var(--green-700); font-weight: 600; margin-top: .6rem; }
+
+@media (min-width: 760px) {
+  .priv-actions { grid-template-columns: repeat(3, 1fr); }
+}

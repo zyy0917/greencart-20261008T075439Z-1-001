@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GreenCart – Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/account.css">
+<link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+<script src="js/sprite.js"></script>
+
+<!-- Top bar: logo, search, account -->
+<header class="home-top">
+  <div class="row">
+    <a href="home.html" class="brand-link" aria-label="GreenCart home">
+      <span class="logo-chip"><svg width="30" height="30" aria-hidden="true"><use href="#gc-mark"/></svg></span>
+      <span class="brand-text">GreenCart</span>
+    </a>
+    <div class="search">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg>
+      <input type="search" id="search" placeholder="Search products" aria-label="Search products" autocomplete="off">
+    </div>
+    <div class="icons">
+      <a href="profile.html" class="gc-account-chip" data-account-link data-account-avatar aria-label="My account" hidden></a>
+      <button id="signout" type="button" hidden aria-hidden="true" tabindex="-1"></button>
+    </div>
+  </div>
+  <nav class="subnav" aria-label="Main">
+    <a class="browse" href="#categories"><svg width="16" height="16" aria-hidden="true"><use href="#i-dots"/></svg>Browse Categories</a>
+    <div class="links">
+      <a href="#top" data-nav="home">Home</a>
+      <a href="#products" data-nav="sale">Flash Sale</a>
+      <a href="#products" data-nav="shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="home-main" id="top">
+
+  <!-- Banner -->
+  <section class="banner" aria-label="Promotion">
+    <div>
+      <h2>Eat Fresh Vegetables For a Healthy Life</h2>
+      <p>Our fresh vegetables are carefully sourced from trusted organic farms to ensure the highest quality and nutritional value.</p>
+      <button class="shop" id="shop-now">Shop Now <span aria-hidden="true">&rarr;</span></button>
+    </div>
+    <svg class="person" viewBox="0 0 160 220" role="img" aria-label="Delivery person holding a bag of vegetables">
+      <path d="M18 220v-52c0-22 18-38 40-38h44c22 0 40 16 40 38v52z" fill="#d43a2d"/>
+      <rect x="64" y="104" width="32" height="30" rx="6" fill="#e9b48a"/>
+      <ellipse cx="80" cy="82" rx="30" ry="34" fill="#f0c19a"/>
+      <path d="M50 74c0-22 14-34 30-34s30 12 30 34c-8-8-18-12-30-12S58 66 50 74z" fill="#d43a2d"/>
+      <path d="M46 72h68v8H46z" fill="#b92d22"/>
+      <circle cx="70" cy="86" r="2.4" fill="#3b2a20"/><circle cx="92" cy="86" r="2.4" fill="#3b2a20"/>
+      <path d="M70 100c6 5 16 5 22 0" stroke="#3b2a20" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M46 150h68l-6 62H52z" fill="#c9a06a"/>
+      <path d="M60 150c-6-16-2-28 8-32 4 10 2 22-8 32zM84 148c-2-16 6-26 16-26 0 12-6 22-16 26zM72 150c0-16 8-24 18-24" fill="#5f8a45"/>
+      <circle cx="66" cy="140" r="8" fill="#e2872f"/>
+    </svg>
+  </section>
+
+  <!-- Category tiles (built by js/home.js from js/products.js) -->
+  <section id="categories" aria-labelledby="cat-title">
+    <div class="section-head">
+      <h3 id="cat-title">Categories</h3>
+    </div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" aria-labelledby="results-title">
+    <div class="section-head">
+      <div>
+        <h3 id="results-title">All products</h3>
+        <p class="count" id="results-count" aria-live="polite"></p>
+      </div>
+      <div class="controls">
+        <button class="chip" id="sale-chip" aria-pressed="false">On sale</button>
+        <label class="sort">
+          <span class="sr-only">Sort products</span>
+          <select id="sort">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="name">Name: A to Z</option>
+          </select>
+        </label>
+        <div class="view-toggle" role="group" aria-label="Layout">
+          <button id="v-grid" aria-pressed="true" aria-label="Grid view"><svg width="12" height="12"><use href="#i-grid"/></svg></button>
+          <button id="v-list" aria-pressed="false" aria-label="List view"><svg width="12" height="12"><use href="#i-list"/></svg></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="products" id="products-grid"></div>
+
+    <div class="empty" id="empty" hidden>
+      <p><strong>No products match your filters.</strong></p>
+      <button class="btn" id="clear-empty">Clear filters</button>
+    </div>
+  </section>
+</main>
+
+<!-- ===================== Footer (same on every page; styles in css/footer.css) ===================== -->
+<footer class="gc-footer" id="contact">
+  <div class="gc-footer-inner">
+    <div class="gc-footer-cols">
+      <div class="gc-footer-about">
+        <a class="gc-footer-brand" href="home.html" aria-label="GreenCart home">
+          <span class="gc-footer-chip"><svg width="26" height="26" aria-hidden="true"><use href="#gc-mark"/></svg></span>
+          <span class="gc-footer-name">GreenCart</span>
+        </a>
+        <p>Fresh, healthy and sustainably sourced organic groceries, delivered to your door.</p>
+      </div>
+      <div>
+        <h2 class="gc-footer-title">Contact us</h2>
+        <ul>
+          <li><a href="mailto:hello@greencart.example">hello@greencart.example</a></li>
+          <li>Monday to Saturday, 8am to 6pm</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="gc-footer-title">Your privacy</h2>
+        <ul>
+          <li><a href="privacy.html">Read the Privacy Notice</a></li>
+          <li><a href="profile.html#privacy">Manage cookie choices</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gc-footer-bottom">
+      <small>&copy; 2026 GreenCart Delivery Services. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="js/account.js"></script>
+<script src="js/products.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

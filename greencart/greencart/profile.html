@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account · GreenCart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+<script src="js/sprite.js"></script>
+
+  <!-- ===================== Top bar ===================== -->
+  <header class="topbar">
+    <a class="brand-link" href="home.html" aria-label="GreenCart home">
+      <span class="logo-chip"><svg width="30" height="30" aria-hidden="true"><use href="#gc-mark"/></svg></span>
+      <span class="brand-text">GreenCart</span>
+    </a>
+
+      <div class="account-menu">
+        <button class="avatar-btn" type="button" id="avatarBtn" aria-haspopup="true" aria-expanded="false" aria-controls="accountMenu" aria-label="Account menu">
+          <span class="avatar avatar-sm" data-avatar></span>
+        </button>
+        <div class="menu" id="accountMenu" hidden>
+          <a href="#personal">My profile</a>
+          <a href="#privacy">Privacy settings</a>
+          <button type="button" data-action="logout">Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+
+    <a class="back-link" href="home.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Back to shop
+    </a>
+
+    <!-- ===================== Sidebar ===================== -->
+    <aside class="sidebar">
+      <p class="sidebar-label">User Account</p>
+      <nav class="nav" aria-label="Account sections">
+        <a class="nav-link active" href="#personal" aria-current="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+          Personal Information
+        </a>
+        <a class="nav-link" href="#privacy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+          Privacy Settings
+        </a>
+        <a class="nav-link" href="#orders">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
+          Order History
+        </a>
+        <a class="nav-link" href="#security">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Security
+        </a>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+      <!-- ===================== Personal information ===================== -->
+      <section class="card" id="personal" aria-labelledby="personal-title">
+        <div class="card-head">
+          <div>
+            <h1 id="personal-title">Personal Information</h1>
+            <p class="muted">Update your personal details and how we can reach you.</p>
+          </div>
+          <button class="btn btn-primary" type="submit" form="profileForm">Save Changes</button>
+        </div>
+
+        <div class="photo-row">
+          <span class="avatar avatar-lg" data-avatar role="img" aria-label="Your profile photo"></span>
+          <div class="identity">
+            <p class="identity-name" id="identityName"></p>
+            <p class="identity-sub" id="identitySub"></p>
+          </div>
+          <div class="photo-actions">
+            <button class="btn btn-outline btn-sm" type="button" id="changePhoto">Change Photo</button>
+            <input type="file" id="photoInput" accept="image/png, image/jpeg, image/webp" hidden>
+            <button class="btn-text" type="button" id="removePhoto">Remove</button>
+          </div>
+        </div>
+
+        <hr class="divider">
+
+        <form id="profileForm" novalidate>
+          <div class="grid-2">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Your full name" aria-describedby="fullName-error">
+              <span class="error" id="fullName-error"></span>
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="email-error">
+              <span class="error" id="email-error"></span>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+63 912 345 6789" aria-describedby="phone-error">
+              <span class="error" id="phone-error"></span>
+            </div>
+            <div class="field">
+              <label for="address">Default Delivery Address</label>
+              <input id="address" name="address" type="text" autocomplete="street-address" placeholder="House no., street, barangay, city" aria-describedby="address-error">
+              <span class="error" id="address-error"></span>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- ===================== Privacy settings & consent ===================== -->
+      <section class="card" id="privacy" aria-labelledby="privacy-title">
+        <div class="section-title">
+          <span class="title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          </span>
+          <h2 id="privacy-title">Privacy Settings &amp; Consent Preferences</h2>
+        </div>
+        <p class="muted">Manage how we handle your data and your cookie preferences. Changes apply when you press Save Preferences.</p>
+
+        <div class="consent-list">
+
+          <div class="consent-item">
+            <div class="consent-row">
+              <div>
+                <h3 id="essential-label">Essential Cookies</h3>
+                <p id="essential-desc">Necessary for the site to function</p>
+              </div>
+              <div class="switch-wrap">
+                <span class="switch-state">Always on</span>
+                <button class="switch" type="button" role="switch" aria-checked="true" aria-labelledby="essential-label" aria-describedby="essential-desc" disabled></button>
+              </div>
+            </div>
+            <details>
+              <summary>What's collected</summary>
+              <ul>
+                <li>Your sign-in session, so you stay logged in</li>
+                <li>Items in your cart and checkout progress</li>
+                <li>The privacy choices you make on this page</li>
+              </ul>
+            </details>
+          </div>
+
+          <div class="consent-item">
+            <div class="consent-row">
+              <div>
+                <h3 id="analytics-label">Analytics &amp; Performance</h3>
+                <p id="analytics-desc">Help us improve our app speed and user experience</p>
+              </div>
+              <div class="switch-wrap">
+                <span class="switch-state" data-state-for="analytics">Off</span>
+                <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="analytics-label" aria-describedby="analytics-desc" data-consent="analytics"></button>
+              </div>
+            </div>
+            <details>
+              <summary>What's collected</summary>
+              <ul>
+                <li>Pages you visit and buttons you click</li>
+                <li>Device and browser type</li>
+                <li>How long pages take to load</li>
+                <li>Never your name, address, or payment details</li>
+              </ul>
+            </details>
+          </div>
+
+          <div class="consent-item">
+            <div class="consent-row">
+              <div>
+                <h3 id="marketing-label">Marketing &amp; Advertising</h3>
+                <p id="marketing-desc">Receive special seasonal offers and personalized updates</p>
+              </div>
+              <div class="switch-wrap">
+                <span class="switch-state" data-state-for="marketing">Off</span>
+                <button class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="marketing-label" aria-describedby="marketing-desc" data-consent="marketing"></button>
+              </div>
+            </div>
+            <details>
+              <summary>What's collected</summary>
+              <ul>
+                <li>Your purchase history, to suggest products you may like</li>
+                <li>Your email address, to send seasonal offers</li>
+                <li>We never sell your data to other companies</li>
+              </ul>
+            </details>
+          </div>
+
+        </div>
+
+        <p class="consent-status" id="consentStatus" aria-live="polite">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="status-text"></span>
+        </p>
+
+        <div class="actions-2">
+          <button class="btn btn-primary" type="button" id="savePrefs">Save Preferences</button>
+          <button class="btn btn-outline" type="button" id="resetPrefs">Reset to Default</button>
+        </div>
+        <button class="link-btn" type="button" id="withdrawBtn">Withdraw All Consent</button>
+
+        <details class="history">
+          <summary>Consent history <span class="history-total" id="historyTotal"></span></summary>
+          <div class="history-tools">
+            <label for="historyFilter">Show</label>
+            <select id="historyFilter">
+              <option value="all">All changes</option>
+              <option value="notice">Privacy notice</option>
+              <option value="profile">Profile page</option>
+              <option value="withdraw">Withdrawals</option>
+            </select>
+            <span class="history-count" id="historyCount" aria-live="polite"></span>
+          </div>
+          <ol id="historyList"></ol>
+          <button class="history-more" id="historyMore" type="button" hidden>Show more</button>
+        </details>
+      </section>
+
+      <!-- ===================== Order history ===================== -->
+      <section class="card" id="orders" aria-labelledby="orders-title">
+        <div class="section-title">
+          <span class="title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <h2 id="orders-title">Order History</h2>
+        </div>
+        <p class="muted">Your recent GreenCart deliveries. (Sample orders for the prototype.)</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Order</th>
+                <th scope="col">Date</th>
+                <th scope="col">Items</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="strong">#GC-10482</td>
+                <td>Oct 2, 2026</td>
+                <td>Organic kale, heirloom tomatoes, +3 more</td>
+                <td>$42.80</td>
+                <td><span class="badge badge-progress">Out for delivery</span></td>
+              </tr>
+              <tr>
+                <td class="strong">#GC-10317</td>
+                <td>Sep 21, 2026</td>
+                <td>Free-range eggs, sourdough loaf</td>
+                <td>$18.25</td>
+                <td><span class="badge badge-done">Delivered</span></td>
+              </tr>
+              <tr>
+                <td class="strong">#GC-10109</td>
+                <td>Sep 8, 2026</td>
+                <td>Avocados, baby spinach, +5 more</td>
+                <td>$56.40</td>
+                <td><span class="badge badge-done">Delivered</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================== Security ===================== -->
+      <section class="card" id="security" aria-labelledby="security-title">
+        <div class="section-title">
+          <span class="title-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </span>
+          <h2 id="security-title">Security</h2>
+        </div>
+        <p class="muted">Change your password and manage your sign-in. <span id="pwChanged"></span></p>
+
+        <form id="passwordForm" class="password-form" novalidate>
+          <div class="grid-3">
+            <div class="field">
+              <label for="currentPassword">Current Password</label>
+              <input id="currentPassword" name="currentPassword" type="password" autocomplete="current-password" maxlength="128" aria-describedby="currentPassword-error">
+              <span class="error" id="currentPassword-error"></span>
+            </div>
+            <div class="field">
+              <label for="newPassword">New Password</label>
+              <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" maxlength="128" aria-describedby="newPassword-hint newPassword-error">
+              <span class="error" id="newPassword-error"></span>
+            </div>
+            <div class="field">
+              <label for="confirmPassword">Confirm New Password</label>
+              <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" maxlength="128" aria-describedby="confirmPassword-error">
+              <span class="error" id="confirmPassword-error"></span>
+            </div>
+          </div>
+          <p class="hint" id="newPassword-hint">Use at least 8 characters, not a common password, and not your name, username or email. A few random words are easy to remember and hard to guess.</p>
+          <button class="btn btn-primary" type="submit">Update Password</button>
+        </form>
+
+        <div class="security-row">
+          <div>
+            <h3>Log out</h3>
+            <p id="sessionInfo">Sign out of GreenCart on this device. Your privacy choices stay saved.</p>
+          </div>
+          <button class="btn btn-outline" type="button" data-action="logout">Log Out</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===================== Footer (same on every page; styles in css/footer.css) ===================== -->
+  <footer class="gc-footer" id="contact">
+    <div class="gc-footer-inner">
+      <div class="gc-footer-cols">
+        <div class="gc-footer-about">
+          <a class="gc-footer-brand" href="home.html" aria-label="GreenCart home">
+            <span class="gc-footer-chip"><svg width="26" height="26" aria-hidden="true"><use href="#gc-mark"/></svg></span>
+            <span class="gc-footer-name">GreenCart</span>
+          </a>
+          <p>Fresh, healthy and sustainably sourced organic groceries, delivered to your door.</p>
+        </div>
+        <div>
+          <h2 class="gc-footer-title">Contact us</h2>
+          <ul>
+            <li><a href="mailto:hello@greencart.example">hello@greencart.example</a></li>
+            <li>Monday to Saturday, 8am to 6pm</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="gc-footer-title">Your privacy</h2>
+          <ul>
+            <li><a href="privacy.html">Read the Privacy Notice</a></li>
+            <li><a href="profile.html#privacy">Manage cookie choices</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="gc-footer-bottom">
+        <small>&copy; 2026 GreenCart Delivery Services. All rights reserved.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== Withdraw consent dialog ===================== -->
+  <div class="modal-backdrop" id="withdrawModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="withdrawTitle" aria-describedby="withdrawDesc">
+      <h2 id="withdrawTitle">Withdraw all consent?</h2>
+      <p id="withdrawDesc">Here's what will happen:</p>
+      <ul>
+        <li>Analytics and marketing turn off right away.</li>
+        <li>We stop using your purchase history for personalized offers.</li>
+        <li>Essential cookies stay on, because sign-in, your cart, and checkout need them.</li>
+        <li>You can turn options back on here at any time.</li>
+      </ul>
+      <div class="modal-actions">
+        <button class="btn btn-outline" type="button" data-close>Keep My Settings</button>
+        <button class="btn btn-primary" type="button" id="confirmWithdraw">Withdraw Consent</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/consent.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/password-policy.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/privacy-additions.js"></script>
+  <script src="js/whats-new.js"></script>
+</body>
+</html>

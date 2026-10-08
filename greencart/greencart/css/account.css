@@ -1,0 +1,23 @@
+/* Account avatar in the home page header (added for the profile page).
+   Shows the signed-in user's photo or initials and opens profile.html. */
+.gc-account-chip {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  border: 2px solid rgba(255, 255, 255, .8);
+  border-radius: 50%;
+  background-color: #3f5f39;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font: 600 12px/1 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+.gc-account-chip[hidden] { display: none; }
+.gc-account-chip:hover { border-color: #fff; transform: scale(1.05); }
+.gc-account-chip:focus-visible { outline: 3px solid #9cb592; outline-offset: 2px; }

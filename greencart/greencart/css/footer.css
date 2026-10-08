@@ -1,0 +1,134 @@
+/* Shared site footer, used on home.html and profile.html.
+   Markup: <footer class="gc-footer"> … </footer> (see either page). */
+
+.gc-footer {
+  --gc-foot-bg: #2b3a24;                    /* GreenCart dark green (--green-900) */
+  --gc-foot-text: #e8ecdf;
+  --gc-foot-muted: #b5bfa8;
+  --gc-foot-line: rgba(232, 236, 223, .16);
+  margin-top: auto;
+  background: var(--gc-foot-bg);
+  color: var(--gc-foot-text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gc-footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 48px 28px 24px;
+}
+
+/* Top: brand | contact | privacy */
+.gc-footer-cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 32px 48px;
+}
+
+.gc-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+}
+.gc-footer-chip {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f8f2e4;
+}
+.gc-footer-chip svg { width: 26px; height: 26px; }
+.gc-footer-name {
+  font-family: "Cormorant Garamond", "DM Serif Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.gc-footer-about p {
+  max-width: 34ch;
+  margin: 14px 0 0;
+  color: var(--gc-foot-muted);
+}
+
+.gc-footer-title {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.gc-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.gc-footer li { color: var(--gc-foot-muted); }
+
+.gc-footer a {
+  color: var(--gc-foot-text);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.gc-footer a:hover { color: #fff; text-decoration: underline; }
+.gc-footer a:focus-visible {
+  outline: 2px solid #cfe0b8;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.gc-footer-brand:hover .gc-footer-name { text-decoration: underline; text-decoration-thickness: 1px; }
+.gc-footer .gc-footer-brand:hover { text-decoration: none; }
+
+/* Bottom: copyright | legal links */
+.gc-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gc-foot-line);
+}
+.gc-footer-bottom small { color: var(--gc-foot-muted); font-size: 12.5px; }
+
+.gc-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 6px;
+  font-size: 13px;
+}
+.gc-footer-links a { position: relative; }
+.gc-footer-links a + a { margin-left: 26px; }
+.gc-footer-links a + a::before {          /* dot between links, not part of the link */
+  content: "•";
+  position: absolute;
+  left: -16px;
+  color: var(--gc-foot-muted);
+  pointer-events: none;
+}
+
+/* Tablet: brand on its own row, then contact and privacy side by side */
+@media (max-width: 760px) {
+  .gc-footer-inner { padding: 40px 20px 22px; }
+  .gc-footer-cols { grid-template-columns: 1fr 1fr; }
+  .gc-footer-about { grid-column: 1 / -1; }
+  .gc-footer-bottom { flex-direction: column-reverse; align-items: flex-start; }
+}
+
+/* Phone: one column */
+@media (max-width: 480px) {
+  .gc-footer-cols { grid-template-columns: 1fr; gap: 28px; }
+}

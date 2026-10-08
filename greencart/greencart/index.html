@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GreenCart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/consent-help.css">
+</head>
+<body>
+<script src="js/sprite.js"></script>
+
+<header class="site-bar">
+  <a href="index.html"><span class="logo-chip"><svg width="26" height="26"><use href="#gc-mark"/></svg></span><span class="brand-text">GreenCart</span></a>
+</header>
+
+<main class="linen hero">
+  <svg class="shade" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><filter id="blur1"><feGaussianBlur stdDeviation="14"/></filter></defs>
+    <g filter="url(#blur1)" fill="#6a4a25" opacity=".55">
+      <ellipse cx="90" cy="120" rx="70" ry="24" transform="rotate(-30 90 120)"/>
+      <ellipse cx="170" cy="60" rx="60" ry="20" transform="rotate(20 170 60)"/>
+      <ellipse cx="60" cy="300" rx="90" ry="26" transform="rotate(35 60 300)"/>
+      <ellipse cx="200" cy="420" rx="80" ry="22" transform="rotate(-20 200 420)"/>
+      <ellipse cx="620" cy="520" rx="110" ry="26" transform="rotate(-25 620 520)"/>
+    </g>
+  </svg>
+  <svg class="leaves" viewBox="0 0 300 220" aria-hidden="true">
+    <g fill="#48663a">
+      <path d="M300 10c-40 0-80 25-92 70 40 6 80-20 92-70z"/>
+      <path d="M290 70c-50 0-90 30-100 78 45 4 88-26 100-78z" fill="#587a45"/>
+      <path d="M250 0c-30 20-40 55-30 90 30-15 42-55 30-90z" fill="#3e5a32"/>
+      <path d="M300 130c-40 4-70 30-76 66 36 0 68-24 76-66z" fill="#4d6e3d"/>
+      <path d="M170 30c-22 12-32 40-24 66 24-10 34-40 24-66z" fill="#5c8048"/>
+    </g>
+    <path d="M300 0C240 40 210 100 190 190" stroke="#3a4f2e" stroke-width="3" fill="none"/>
+  </svg>
+
+  <div class="hero-copy" style="position:relative;z-index:1">
+    <h1>Fresh. Organic.<br>Delivered.</h1>
+    <p>GreenCart is an organic grocery delivery e-commerce platform that connects customers with fresh, healthy, and sustainably sourced products.</p>
+  </div>
+
+  <div class="hero-side">
+    <div class="big-logo">
+      <svg width="120" height="120" role="img" aria-label="GreenCart logo"><use href="#gc-mark"/></svg>
+      <span class="word">GREENCART</span>
+      <span class="tag">ORGANIC DELIVERY</span>
+    </div>
+    <div class="pill-stack">
+      <a class="pill" href="login.html">Login</a>
+      <a class="pill" id="register-btn" href="register.html">Register</a>
+    </div>
+    <p class="note" id="reg-note" role="status" aria-live="polite"></p>
+  </div>
+
+  <!-- Privacy popup: shown until the visitor makes a choice
+       (updated: plain-language explanations, Marketing row shown, clearer save button) -->
+  <div class="overlay" id="consent-overlay" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-desc" hidden>
+    <div class="consent">
+      <svg width="34" height="34" aria-hidden="true"><use href="#gc-mark"/></svg>
+      <h2 id="consent-title">Your Privacy Matters</h2>
+      <p class="lede" id="consent-desc">GreenCart saves small files called cookies in your browser. Some are needed for the site to work. The others are optional, so you choose whether we can use them.</p>
+      <div class="rows">
+        <div class="crow"><span class="dot"></span>
+          <span class="grow">Essential Operations
+            <span class="crow-desc" id="desc-essential">Keeps you signed in, remembers your cart and saves this choice. The site can't work without these.</span>
+          </span>
+          <small>Always on</small>
+          <!-- Locked switch: shows it's on, but it can't be turned off (the site needs it) -->
+          <button class="switch" role="switch" aria-checked="true" aria-label="Essential operations, always on" aria-describedby="desc-essential" title="Always on: the site can't work without these" disabled></button>
+        </div>
+        <div class="crow"><span class="dot off" id="modal-dot"></span>
+          <span class="grow">Performance &amp; Analytics
+            <span class="crow-desc" id="desc-analytics">Counts page visits and loading times so we can make the site faster. Never your name or address.</span>
+          </span>
+          <button class="switch" role="switch" aria-checked="false" aria-label="Performance and analytics cookies" aria-describedby="desc-analytics" id="modal-analytics"></button>
+        </div>
+        <div class="crow"><span class="dot off" id="modal-dot-marketing"></span>
+          <span class="grow">Marketing &amp; Offers
+            <span class="crow-desc" id="desc-marketing">Uses what you buy to show you seasonal offers and deals.</span>
+          </span>
+          <button class="switch" role="switch" aria-checked="false" aria-label="Marketing and offers cookies" aria-describedby="desc-marketing" id="modal-marketing"></button>
+        </div>
+      </div>
+      <button class="btn primary block" id="modal-accept">Accept All</button>
+      <div class="btn-row">
+        <button class="btn" id="modal-reject">Reject All</button>
+        <button class="btn" id="modal-manage">Save My Choices</button>
+      </div>
+      <p class="consent-note">Accept All turns both optional types on. Reject All keeps only the essential ones. Save My Choices keeps the switches as you set them. You can change this anytime.</p>
+      <span class="foot"><a href="privacy.html">Read our full Privacy Notice</a></span>
+    </div>
+  </div>
+
+  <!-- Registration consent: opens when someone clicks Register -->
+  <div class="overlay" id="register-overlay" role="dialog" aria-modal="true" aria-labelledby="reg-title" hidden>
+    <div class="consent">
+      <svg width="34" height="34" aria-hidden="true"><use href="#gc-mark"/></svg>
+      <h2 id="reg-title">Before you register</h2>
+      <p class="lede">To create your account, GreenCart needs to collect and use some of your personal information.</p>
+      <ul class="reg-list">
+        <li>Your name, email, contact number and delivery address</li>
+        <li>Your order history, used to deliver and support your orders</li>
+        <li>You can review or change your cookie choices at any time in the Privacy Notice</li>
+      </ul>
+      <label class="agree">
+        <input type="checkbox" id="reg-agree">
+        <span>I have read the <a href="privacy.html">Privacy Notice</a> and agree to how my information is collected and used.</span>
+      </label>
+      <button class="btn primary block" id="reg-continue" disabled>Agree &amp; Continue</button>
+      <div class="btn-row" style="grid-template-columns:1fr">
+        <button class="btn" id="reg-decline">Decline</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/consent.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+/* Added for the register page: field hints, invalid fields,
+   password checklist and strength meter */
+
+.field-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #6b7266;
+}
+
+.auth-card .field.invalid input {
+  border-color: #b3412e;
+  box-shadow: 0 0 0 3px rgba(179, 65, 46, .12);
+}
+
+/* Strength meter */
+.pw-meter { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.pw-meter[hidden] { display: none; }
+.pw-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: #e7e3d8;
+  overflow: hidden;
+}
+.pw-bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s, background-color .2s;
+}
+.pw-label { min-width: 48px; font-size: 12px; font-weight: 600; text-align: right; }
+
+/* Checklist */
+.pw-rules {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #6b7266;
+}
+.pw-rules li { display: flex; align-items: center; gap: 7px; }
+.pw-rules li::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  border: 1.5px solid #c9c4b6;
+  border-radius: 50%;
+}
+.pw-rules li.met { color: #34502f; }
+.pw-rules li.met::before {
+  border-color: #3f5f39;
+  background: #3f5f39 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center / 10px no-repeat;
+}
+/* After the first submit, unmet rules turn red */
+.tried .pw-rules li:not(.met) { color: #b3412e; }
+.tried .pw-rules li:not(.met)::before { border-color: #b3412e; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pw-bar span { transition: none; }
+}
